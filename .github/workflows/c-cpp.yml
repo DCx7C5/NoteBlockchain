@@ -14,11 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: INSTALL DEPENDS
-      run: cd depends && make && mv "x86*/" ../deptmp/ && cd ..
+      run: cd depends && make -j4 && cd ..
     - name: configure
-      run: ./autogen.sh && ./configure --prefix=/deptmp/
+      run: ./autogen.sh && ./configure --prefix=/home/runner/work/NoteBlockchain/NoteBlockchain/depends/work/build/x86_64-pc-linux-gnu
     - name: make
-      run: make
+      run: make -j4
     - name: make check
       run: make check
     - name: make distcheck
