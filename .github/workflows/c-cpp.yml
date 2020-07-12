@@ -14,9 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: INSTALL DEPENDS
-      run: cd depends && make && cd ..
+      run: cd depends && make && mv "x86*/" ../deptmp/ && cd ..
     - name: configure
-      run: ./autogen.sh && ./configure
+      run: ./autogen.sh && ./configure --prefix=/deptmp/
     - name: make
       run: make
     - name: make check
