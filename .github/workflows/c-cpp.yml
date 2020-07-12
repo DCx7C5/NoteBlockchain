@@ -16,6 +16,7 @@ jobs:
     - name: INSTALL DEPENDS
       run: cd depends && make -j4 && cd ..
     - name: FIX PERMISSIONS
+      run: chmod +x src/leveldb/build_detect_platform
     - name: configure
       run: ./autogen.sh && ./configure --prefix=/home/runner/work/NoteBlockchain/NoteBlockchain/depends/x86_64-pc-linux-gnu --disable-bench
     - name: make
