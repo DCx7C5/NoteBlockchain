@@ -9,14 +9,15 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: debian
 
     steps:
     - uses: actions/checkout@v2
     - name: INSTALL DEPENDS
       run: cd depends && make -j4 && cd ..
+    - name: FIX PERMISSIONS
     - name: configure
-      run: ./autogen.sh && ./configure --prefix=/home/runner/work/NoteBlockchain/NoteBlockchain/depends/x86_64-pc-linux-gnu --disable-tests --disable-bench
+      run: ./autogen.sh && ./configure --prefix=/home/runner/work/NoteBlockchain/NoteBlockchain/depends/x86_64-pc-linux-gnu --disable-bench
     - name: make
       run: make -j4
     - name: make check
