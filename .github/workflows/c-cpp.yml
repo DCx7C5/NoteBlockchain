@@ -16,7 +16,7 @@ jobs:
     - name: INSTALL DEPENDS
       run: cd depends && make -j4 && cd ..
     - name: configure
-      run: ./autogen.sh && ./configure --prefix=/home/runner/work/NoteBlockchain/NoteBlockchain/depends/work/build/x86_64-pc-linux-gnu
+      run: ./autogen.sh && ./configure --prefix=/home/runner/work/NoteBlockchain/NoteBlockchain/depends/x86_64-pc-linux-gnu
     - name: make
       run: make -j4
     - name: make check
